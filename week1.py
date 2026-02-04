@@ -51,3 +51,21 @@ matches = gale_shapley_students_hospitals(students, hospitals)
 
 for student, hospital in matches:
     print(f"{student} → {hospital}")
+
+def cube_algorithm (n):
+    for i in range(n):
+        for j in range(n):
+            for z in range(n):
+                print(i, j, z)
+
+
+def log_func_recursive (n):
+    if n == 0:
+        return "Done"
+    n = n // 2
+    return  log_func_recursive(n) 
+
+def log_func (n):
+    while n > 1:
+        n //= 2
+    return "Done"
