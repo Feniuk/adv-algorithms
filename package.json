@@ -1,0 +1,8 @@
+{
+  "name": "adv-algorithms",
+  "scripts": {
+    "dev:js": "node practice.js",
+    "dev:py": "python algorithms.py",
+    "dev": "npm run dev:js"
+  }
+}
