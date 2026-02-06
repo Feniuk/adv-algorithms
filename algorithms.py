@@ -49,8 +49,8 @@ def gale_shapley_students_hospitals(students, hospitals):
 
 matches = gale_shapley_students_hospitals(students, hospitals)
 
-for student, hospital in matches:
-    print(f"{student} → {hospital}")
+# for student, hospital in matches:
+#     print(f"{student} → {hospital}")
 
 def cube_algorithm (n):
     for i in range(n):
@@ -69,3 +69,33 @@ def log_func (n):
     while n > 1:
         n //= 2
     return "Done"
+
+
+def mergeSort(arr) :
+    if len(arr) < 2:
+        return arr
+    
+    middleIndex = len(arr) // 2
+    leftArr = arr[:middleIndex]
+    rightArr = arr[middleIndex:]
+
+    return merge(mergeSort(leftArr), mergeSort(rightArr))
+
+def merge(leftArr, rightArr):
+    mergedArr = []
+    leftIndex = 0
+    rightIndex = 0
+
+    while leftIndex < len(leftArr) and rightIndex < len(rightArr):
+        if leftArr[leftIndex] < rightArr[rightIndex]:
+            mergedArr.append(leftArr[leftIndex])
+            leftIndex += 1
+        else:
+            mergedArr.append(rightArr[rightIndex])
+            rightIndex += 1
+
+    mergedArr.extend(leftArr[leftIndex:])
+    mergedArr.extend(rightArr[rightIndex:])
+    return mergedArr
+
+print(mergeSort([12, 3, 16, 6, 5, 1]))
