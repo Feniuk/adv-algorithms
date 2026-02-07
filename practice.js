@@ -84,4 +84,13 @@ function merge(leftArr, rightArr) {
 
 let array = [12, 3, 16, 6, 5, 1];
 
-console.log(mergeSort(array));
+function fib(n) {
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+
+  return fib(n - 1) + fib(n - 2);
+}

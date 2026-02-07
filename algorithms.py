@@ -98,4 +98,14 @@ def merge(leftArr, rightArr):
     mergedArr.extend(rightArr[rightIndex:])
     return mergedArr
 
-print(mergeSort([12, 3, 16, 6, 5, 1]))
+
+def fibonachi(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    
+    return fibonachi(n -1) + fibonachi(n - 2)
+
+print(fibonachi(5))
+
