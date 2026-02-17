@@ -107,5 +107,51 @@ def fibonachi(n):
     
     return fibonachi(n -1) + fibonachi(n - 2)
 
-print(fibonachi(5))
 
+
+lectures = {
+    'a': [9, 10.5],
+    'b': [9, 12.5],
+    'c': [9, 10.5],
+    'd': [11, 12.5],
+    'e': [11, 14],
+    'f': [13, 14.5],
+    'g': [13, 14],
+    'h': [14, 16.5],
+    'i': [15, 16.5],
+    'j': [15, 16.5]
+}
+
+def first_value(item):
+    return item[1][0]
+
+def intervalPartioning(some_lectures):
+    sorted_lectures = sorted(some_lectures.items(), key=first_value)
+    schedule = {}
+    depth = 0
+    next_room_id = 0
+
+    for lect in sorted_lectures:
+        
+        assigned = False
+        for room_id, lectures_in_room in schedule.items():
+            last_lecture = lectures_in_room[-1]
+            last_end_time = last_lecture[1][1]
+
+            if last_end_time <= lect[1][0]:
+                lectures_in_room.append(lect)
+                assigned = True
+                break
+
+        if not assigned:
+            next_room_id += 1
+            new_list = []
+            new_list.append(lect)
+            schedule[next_room_id] = new_list
+            depth += 1
+
+
+    return schedule, depth
+
+
+print(intervalPartioning(lectures))
